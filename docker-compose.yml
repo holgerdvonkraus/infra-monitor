@@ -1,0 +1,10 @@
+services:
+  monitor:
+    build: .
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./config.json:/app/config.json
+      - ./logs:/app/logs
+    network_mode: host

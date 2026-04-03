@@ -1,0 +1,9 @@
+{
+  "interval": 30,
+  "location": "internal",
+  "node": "",
+  "log_file": "./logs/monitor.log",
+  "hosts": [
+    {"name": "example-host", "host": "192.168.1.1", "ping": true, "tcp": [22, 80], "external": false}
+  ]
+}
