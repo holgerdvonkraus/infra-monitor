@@ -147,6 +147,8 @@ def show_setup(cfg: dict) -> None:
         table.add_row(str(i), h["name"], h["host"], ping_str, ports_str)
 
     console.print(table)
+    if hosts and all("example" in h["name"].lower() for h in hosts):
+        console.print("[dim yellow]Tip: delete example hosts with [D #] and add your own with [A][/dim yellow]")
     console.print("\n[bold][[green]S[/green]] Start   [[yellow]A[/yellow]] Add   [[yellow]E #[/yellow]] Edit   [[yellow]D #[/yellow]] Delete   [[yellow]C[/yellow]] Settings   [[red]Q[/red]] Quit[/bold]\n")
 
 
