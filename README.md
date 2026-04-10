@@ -1,6 +1,6 @@
 ![Python 3.8+](https://img.shields.io/badge/python-3.8%2B-blue?logo=python&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-supported-2496ED?logo=docker&logoColor=white)
-![License MIT](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-Non--Commercial-red)
 ![Platform](https://img.shields.io/badge/platform-linux%20%7C%20macOS-lightgrey)
 
 # infra-monitor
@@ -213,4 +213,4 @@ ssh user@server "tail -f /opt/infra-monitor/logs/monitor.log | jq ."
 
 ## License
 
-[MIT](LICENSE) — Copyright (c) 2026 infra-monitor contributors
+Non-Commercial License — Copyright (c) 2026 [Holgerd von Kraus](https://github.com/holgerdvonkraus)
