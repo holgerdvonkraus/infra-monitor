@@ -80,7 +80,12 @@ docker compose up --build
 ```
 
 Config is mounted from `./config.json`; logs go to `./logs/monitor.log`.
-To run detached: `docker compose up --build -d`
+
+> **Note:** `docker compose up` does not attach stdin, so the interactive Setup screen keys (`A`, `E`, `D`, `C`, `Q`) will not respond. To use the interactive UI, run:
+> ```bash
+> docker compose run --rm monitor
+> ```
+> Once configured, use `docker compose up -d` to run in the background with the saved `config.json`.
 
 ### Bare Python
 
@@ -180,7 +185,7 @@ jq 'select(.event == "DOWN")' logs/monitor.log
 
 ```bash
 # First deploy
-ssh user@server "git clone https://github.com/your-org/infra-monitor.git /opt/infra-monitor"
+ssh user@server "git clone https://github.com/holgerdvonkraus/infra-monitor.git /opt/infra-monitor"
 ssh user@server "cd /opt/infra-monitor && docker compose up --build -d"
 
 # Push your config
