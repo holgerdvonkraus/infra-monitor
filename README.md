@@ -74,7 +74,7 @@ Events are logged in JSON Lines format — ready for ingestion by Loki, Promethe
 ### Docker (recommended)
 
 ```bash
-git clone https://github.com/your-org/infra-monitor.git
+git clone https://github.com/holgerdvonkraus/infra-monitor.git
 cd infra-monitor
 docker compose up --build
 ```
