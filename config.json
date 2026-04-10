@@ -4,8 +4,8 @@
   "node": "",
   "log_file": "./logs/monitor.log",
   "hosts": [
-    {"name": "example-router",  "host": "192.168.1.1",  "ping": true, "tcp": [22, 80],       "external": false},
-    {"name": "example-server",  "host": "192.168.1.10", "ping": true, "tcp": [22, 3389, 445], "external": false},
-    {"name": "example-public",  "host": "example.com",  "ping": true, "tcp": [80, 443],       "external": true}
+    {"name": "gateway",    "host": "192.168.1.1",  "ping": true, "tcp": [22, 80],       "external": false},
+    {"name": "app-server", "host": "192.168.1.10", "ping": true, "tcp": [22, 443],      "external": false},
+    {"name": "public",     "host": "example.com",  "ping": true, "tcp": [80, 443],      "external": true}
   ]
 }
