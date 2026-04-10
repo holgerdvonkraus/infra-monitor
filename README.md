@@ -120,6 +120,8 @@ Requires Python 3.8+. On first launch the Setup screen opens automatically.
 | `tcp` | array[int] | no | TCP ports to check, e.g. `[22, 443]` |
 | `external` | bool | no | Mark host as internet-reachable (used with `location: "external"`) |
 
+The `host` field accepts both IP addresses and DNS hostnames. Hostnames are resolved using the system resolver at check time, so short names (e.g. `my-server`) work if your `/etc/resolv.conf` has a matching `search` domain configured.
+
 **Example:**
 
 ```json
@@ -129,12 +131,14 @@ Requires Python 3.8+. On first launch the Setup screen opens automatically.
   "node": "prod-mon-01",
   "log_file": "./logs/monitor.log",
   "hosts": [
-    {"name": "gateway",   "host": "10.0.0.1",   "ping": true, "tcp": [22, 80],  "external": false},
-    {"name": "app-server","host": "10.0.0.10",  "ping": true, "tcp": [22, 443], "external": false},
-    {"name": "public",    "host": "example.com","ping": true, "tcp": [80, 443], "external": true}
+    {"name": "gateway",    "host": "10.0.0.1",         "ping": true, "tcp": [22, 80],  "external": false},
+    {"name": "app-server", "host": "app-server",        "ping": true, "tcp": [22, 443], "external": false},
+    {"name": "public",     "host": "example.com",       "ping": true, "tcp": [80, 443], "external": true}
   ]
 }
 ```
+
+> **DNS tip:** if your monitoring node has `search corp.local` in `/etc/resolv.conf`, you can use short hostnames like `app-server` instead of `app-server.corp.local` or its IP.
 
 ### Setup screen keyboard commands
 
