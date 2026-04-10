@@ -138,7 +138,22 @@ The `host` field accepts both IP addresses and DNS hostnames. Hostnames are reso
 }
 ```
 
-> **DNS tip:** if your monitoring node has `search corp.local` in `/etc/resolv.conf`, you can use short hostnames like `app-server` instead of `app-server.corp.local` or its IP.
+> **DNS tip:** to use short hostnames, the monitoring node needs:
+> 1. A DNS server that resolves your internal names — set via `nameserver` in `/etc/resolv.conf` or via your DHCP/netplan config
+> 2. A search domain matching your internal zone — set via `search` in `/etc/resolv.conf`
+>
+> On Ubuntu with systemd-resolved, check with `resolvectl status`. You can set DNS servers and search domain in netplan:
+> ```yaml
+> network:
+>   version: 2
+>   ethernets:
+>     eth0:
+>       dhcp4: true
+>       nameservers:
+>         addresses: [192.168.1.53]
+>         search: [corp.local]
+> ```
+> After that, `app-server` resolves as `app-server.corp.local`.
 
 ### Setup screen keyboard commands
 
